@@ -1,4 +1,4 @@
-﻿using CashFlow.Application.UseCases.Expenses.Reports.Pdf.Colors;
+﻿    using CashFlow.Application.UseCases.Expenses.Reports.Pdf.Colors;
 using CashFlow.Application.UseCases.Expenses.Reports.Pdf.Fonts;
 using CashFlow.Domain.Extensions;
 using CashFlow.Domain.Reports;
