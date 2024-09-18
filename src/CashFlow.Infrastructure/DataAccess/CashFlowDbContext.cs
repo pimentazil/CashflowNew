@@ -1,18 +1,19 @@
 ﻿using CashFlow.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace CashFlow.Infrastructure.DataAccess;
-public class CashFlowDbContext : DbContext
+namespace CashFlow.Infrastructure.DataAccess
 {
-    public CashFlowDbContext(DbContextOptions options) : base(options) { }
-
-    public DbSet<Expense> Expenses { get; set; }
-    public DbSet<User> Users { get; set; }
-
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    public class CashFlowDbContext : DbContext
     {
-        base.OnModelCreating(modelBuilder);
+        public CashFlowDbContext(DbContextOptions options) : base(options) { }
 
-        modelBuilder.Entity<Tag>().ToTable("Tags");
+        public DbSet<Expense> Expenses { get; set; }
+        public DbSet<User> Users { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Expense>().ToTable("expense");
+            modelBuilder.Entity<User>().ToTable("user");
+            modelBuilder.Entity<Tag>().ToTable("Tags");
+        }
     }
 }

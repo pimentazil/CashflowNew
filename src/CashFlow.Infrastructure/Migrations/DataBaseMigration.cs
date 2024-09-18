@@ -2,13 +2,16 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CashFlow.Infrastructure.Migrations;
-public static class DataBaseMigration
+namespace CashFlow.Infrastructure.Migrations
 {
-    public async static Task MigrateDatabase(IServiceProvider serviceProvider)
+    public static class DataBaseMigration
     {
-        var dbContext = serviceProvider.GetRequiredService<CashFlowDbContext>();
+        public static async Task MigrateDataBase(IServiceProvider serviceProvider)
+        {
+            var dbContext = serviceProvider.GetRequiredService<CashFlowDbContext>();
 
-        await dbContext.Database.MigrateAsync();
+            await dbContext.Database.MigrateAsync();
+        }
     }
+
 }
